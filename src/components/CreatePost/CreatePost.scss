@@ -1,0 +1,28 @@
+.CreatePost {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+.CreatePost-Title {
+    width: 50%;
+    border: 1px solid var(--border);
+
+    --border: black;
+
+    &-Red {
+        --border: crimson;
+    }
+}
+
+.CreatePost-Body {
+    width: 50%;
+    min-height: 40vh;
+    border: 1px solid var(--border);
+
+    --border: black;
+
+    &-Red {
+        --border: crimson;
+    }
+}
