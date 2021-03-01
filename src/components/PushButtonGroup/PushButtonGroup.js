@@ -12,8 +12,11 @@ class PushButtonGroup extends React.Component {
 
     handleClick(e) {
         console.log(e)
-        this.state.buttons.find((button, index)=>{
-            return index === e.target.id;
+        this.setState(state=>{
+            const button = this.state.buttons.find((button, index)=>{
+                return index === e.target.id;
+            });
+
         })
     }
 
