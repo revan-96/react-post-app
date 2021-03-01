@@ -10,7 +10,7 @@ class Post extends React.Component {
         return (
             <div className="Post">
                 <h1 className="Post-Title"><ReactMarkdown>{title}</ReactMarkdown></h1>
-                <p className="Post-Body"><ReactMarkdown>{body}</ReactMarkdown></p>
+                <div className="Post-Body"><ReactMarkdown>{body}</ReactMarkdown></div>
             </div>
         )
     }

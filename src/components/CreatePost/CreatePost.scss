@@ -16,8 +16,8 @@
 }
 
 .CreatePost-Body {
-    width: 50%;
-    min-height: 40vh;
+    width: 80%;
+    min-height: 35vh;
     border: 1px solid var(--border);
 
     --border: black;
@@ -25,4 +25,20 @@
     &-Red {
         --border: crimson;
     }
+}
+
+.CreatePost-Alert {
+    z-index: 1;
+    width: 30%;
+    position:absolute;
+    left: 30%;
+    transition: display block
+}
+
+.CreatePost-Alert {
+    display: block;
+    z-index: 1;
+    width: 20%;
+    position:absolute;
+    left: 30%;
 }

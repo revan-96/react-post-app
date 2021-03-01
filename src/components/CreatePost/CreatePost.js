@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CreatePost.scss';
+import Alert from '../Alert/Alert';
 
 class CreatePost extends React.Component {
-    constructor({title, body, onSubmit}) {
-        super({title, body})
-        this.state = {title: {value: title, Invalid: false}, body: {value: body, Invalid: false}};
-        this.onSubmit = onSubmit;
+    constructor(props) {
+        super(props)
+        this.state = {title: {value: props.title, Invalid: false}, body: {value: props.body, Invalid: false}};
+        this.onSubmit = props.onSubmit;
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFocus = this.handleFocus.bind(this);
@@ -16,9 +17,9 @@ class CreatePost extends React.Component {
         const name = e.target.name;
         const value = e.target.value;
         console.log(name, value)
-        if(name == 'title') {
+        if(name === 'title') {
             this.setState({title: {value: value}});
-        } else if (name == 'body') {
+        } else if (name ==='body') {
             this.setState({body: {value: value}});
         }
     }
@@ -26,21 +27,21 @@ class CreatePost extends React.Component {
     handleSubmit(e) {
         console.log(e);
         e.preventDefault();
-        if(!this.state.title.value) {
+        if (!this.state.title.value) {
             this.setState({title: {Invalid: true}});
             return;
         } if (!this.state.body.value) {
             this.setState({body: {Invalid: true}});
             return;
-        }
-        this.onSubmit();
+        } 
+        this.onSubmit({title: this.state.title, body: this.state.body});
     }
 
     handleFocus(e) {
         const name = e.target.name;
-        if(name == 'title') {
+        if(name === 'title') {
             this.setState({title: {Invalid: false}});
-        } else if (name == 'body') {
+        } else if (name === 'body') {
             this.setState({body: {Invalid: false}});
         }
     }    
@@ -53,15 +54,25 @@ class CreatePost extends React.Component {
                         Title:
                         <br/>
                         <textarea className={'CreatePost-Title' + (this.state.title.Invalid ? ' CreatePost-Title-Red' : '')} name="title" value={this.state.title.value} onChange={this.handleChange} onFocus={this.handleFocus}/>                        
+                        {this.state.title.Invalid && 
+                            <div className="CreatePost-Alert">
+                                <Alert message="Title cannot be empty"></Alert>
+                            </div>
+                        }
                     </label>
                     <br/>
                     <label>
                         Body:
                         <br/>
                         <textarea className={'CreatePost-Body' + (this.state.body.Invalid ? ' CreatePost-Body-Red' : '')} name="body" value={this.state.body.value} onChange={this.handleChange} onFocus={this.handleFocus}/>                        
+                        {this.state.body.Invalid && 
+                            <div className="CreatePost-Alert">
+                                <Alert message="Body cannot be empty"></Alert>
+                            </div>
+                        }
                     </label>
                     <br/>
-                    <input type="submit" value="Submit"></input>
+                    <input type="submit" value="Publish"></input>
                 </form>
             </div>
         );
@@ -79,6 +90,5 @@ CreatePost.defaultProps = {
     body: '',
     onSubmit: undefined
 };
-
 
 export default CreatePost;
