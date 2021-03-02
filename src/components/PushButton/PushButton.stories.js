@@ -3,15 +3,14 @@ import PushButton from './PushButton';
 
 export default {
     component: PushButton,
-    title: 'PushButton',
-    argTypes: { onClick: { action: 'clicked' } }
+    title: 'PushButton'
 };
 
-const Template = args => <PushButton {...args} />;
+const Template = args => <PushButton {...args}/>;
 
 export const Default = Template.bind({});
 Default.args = {
     pressed: false,
-    label: 'New Post'
+    children: 'New Post'
 };
 

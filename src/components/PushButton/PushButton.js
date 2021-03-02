@@ -1,20 +1,10 @@
 import React from 'react';
 import './PushButton.scss';
+import PropTypes from 'prop-types';
 
 class PushButton extends React.Component {
     constructor(props) {
         super(props);
-        this.label = props.label;
-        this.onClick = props.onClick;
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick(e) {
-        if(this.props.pressed) {
-            return;
-        } 
-        e.target.id = this.props.id;
-        this.onClick(e);
     }
 
     render() {
@@ -23,13 +13,24 @@ class PushButton extends React.Component {
             <button
                 type="button"
                 className={'PushButton ' + mode}
-                onClick={this.handleClick}
+                {...this.props}
             >
-                {this.label}
             </button>
         );
     }
 
+}
+
+PushButton.propTypes = {
+    pressed: PropTypes.bool,
+    children: PropTypes.string,
+    onClick: PropTypes.func
+}
+
+PushButton.defaultProps = {
+    pressed: false,
+    children: '',
+    onClick: undefined
 }
 
 export default PushButton;

@@ -1,34 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './PushButtonGroup.scss';
-import PushButton from '../PushButton/PushButton';
 
 class PushButtonGroup extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {buttons: props.buttons};
+        this.buttons = this.props.children;
+        console.log(this.buttons)
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(e) {
-        console.log(e)
-        this.setState(state=>{
-            const button = this.state.buttons.find((button, index)=>{
-                return index === e.target.id;
-            });
-
-        })
+        console.log(e);
     }
 
     render() {
-        const buttons = this.state.buttons.map((button, index)=>
-            <PushButton key={index.toString()} id={index.toString()} label={button.label} pressed={button.pressed} onClick={this.handleClick}></PushButton>
-        );
         return (
-            <div>{buttons}</div>
+            <div {...this.props}></div>
         );
     }
 
+}
+
+PushButtonGroup.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.node.isRequired),
+}
+
+PushButtonGroup.defaultProps = {
+    children: null,
 }
 
 export default PushButtonGroup;
