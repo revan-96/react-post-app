@@ -15,4 +15,4 @@ class ViewPost extends React.Component {
     }
 }
 
-export default Post;
+export default ViewPost;

@@ -1,2 +1,3 @@
 *blockquote not rendering properly in markdown
 *change color for validation in posts
+*make use of styled-components instead of scss

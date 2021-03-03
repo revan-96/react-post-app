@@ -10,7 +10,6 @@ const Template = args => <PushButton {...args}/>;
 
 export const Default = Template.bind({});
 Default.args = {
-    pressed: false,
     children: 'New Post'
 };
 

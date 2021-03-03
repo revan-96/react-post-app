@@ -3,8 +3,7 @@ import CreatePost from './CreatePost';
 
 export default {
     component: CreatePost,
-    title: 'CreatePost',
-    argTypes: { onSubmit: {action: 'submit'} }
+    title: 'CreatePost'
 };
 
 const Template = args => <CreatePost {...args} />;

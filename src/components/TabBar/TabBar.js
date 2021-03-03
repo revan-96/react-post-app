@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PushButtonGroup from '../PushButtonGroup/PushButtonGroup';
 import PushButton from '../PushButton/PushButton';
+import Tab from '../Tab/Tab';
+import './TabBar.scss';
 
-class PushButtonGroup extends React.Component {
+class TabBar extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -20,23 +23,33 @@ class PushButtonGroup extends React.Component {
     render() {
         return (
             <div>
+            <PushButtonGroup onChange={this.handleChange}>
             {
-                this.props.children.map((button, index) => {
-                    const props = button.props;
-                    const pressed = this.state.pressed === index.toString();
-                    const Button = button.type;
-                    return <Button key={index} value={index} pressed={pressed} onClick={this.handleChange} {...props}></Button>;
+                this.props.children.map((component, index) => {
+                    console.log(component)
+                    const props = component.props;
+                    return <PushButton key={index}>{props.name}</PushButton>
+                })
+            }
+            </PushButtonGroup>
+            <br/>
+            {
+                this.props.children.find((component, index) => {
+                    if(this.state.pressed === index.toString()) {
+                        const props = component.props;
+                        const Component = component.type;
+                        return <Component {...props}></Component>;
+                    }
                 })
             }                
             </div>
         );
     }
-
 }
 
-PushButtonGroup.propTypes = {
+TabBar.propTypes = {
     children: PropTypes.arrayOf((elements, key, componentName, location, propFullName) => {
-        if(elements[key].type != PushButton) {
+        if(elements[key].type != Tab) {
             console.log('invalid')
             return new Error(
                 'Invalid prop `' + propFullName + '` supplied to' +
@@ -47,7 +60,8 @@ PushButtonGroup.propTypes = {
     onChange: PropTypes.func
 }
 
-PushButtonGroup.defaultProps = {
+TabBar.defaultProps = {
 }
 
-export default PushButtonGroup;
+
+export default TabBar;

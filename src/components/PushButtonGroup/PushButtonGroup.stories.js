@@ -10,7 +10,7 @@ export default {
 };
 
 const PushButtonGroupTemplate = ({items, ...args}) => (    
-    <PushButtonGroup>
+    <PushButtonGroup {...args}>
         {items.map((item, index)=>{
             return <PushButton key={index} {...item}/>;
         })}

@@ -11,3 +11,6 @@ const Template = args => <NewPost {...args} />;
 export const Default = Template.bind({});
 Default.args = {};
 
+export const New = Template.bind({});
+New.args = {};
+

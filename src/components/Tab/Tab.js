@@ -1,21 +1,22 @@
 import React from 'react';
-import './Tab.scss';
-import NewPost from '../NewPost/NewPost';
+import PropTypes from 'prop-types';
 
 class Tab extends React.Component {
     constructor(props) {
-        super(props)
-        this.handleSubmit = this.handleSubmit.bind(this);
+        super(props);
     }
-
-    handleSubmit(e) {
-        //submit post to common store
-        console.log(e);
-    }
-
     render() {
-        return;
+        return (
+            <div {...this.props}>{this.props.children}</div>
+        );
     }
+
+}
+
+Tab.propTypes = {
+}
+
+Tab.defaultProps = {
 }
 
 export default Tab;
