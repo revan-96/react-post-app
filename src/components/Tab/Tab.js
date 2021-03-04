@@ -1,13 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { StyledTab } from './TabStyles';
 
 class Tab extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props)
     }
     render() {
         return (
-            <div {...this.props}>{this.props.children}</div>
+            <StyledTab {...this.props}>{this.props.children}</StyledTab>
         );
     }
 

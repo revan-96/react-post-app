@@ -9,6 +9,4 @@ export default {
 const Template = args => <SearchBar {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-    type: "input"
-};
+Default.args = {};

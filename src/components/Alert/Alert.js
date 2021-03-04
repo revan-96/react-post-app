@@ -1,11 +1,11 @@
 import React from 'react';
-import './Alert.scss';
+import { StyledAlert } from './AlertStyles';
 
 class Alert extends React.Component {
 
     render() {
         return (
-            <p className="Alert">{this.props.message}</p>
+            <StyledAlert>{this.props.children}</StyledAlert>
         );
     }
 }

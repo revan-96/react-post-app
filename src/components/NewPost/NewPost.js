@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './NewPost.scss';
 import CreatePost from '../CreatePost/CreatePost';
+import { StyledNewPostCont, StyledNewPost } from './NewPostStyles';
 
 class NewPost extends React.Component {
     constructor(props) {
@@ -13,16 +13,18 @@ class NewPost extends React.Component {
     handleSubmit(e) {
         //submit post to common store
         console.log(e);
-        this.onSubmit(e);
+        if(this.onSubmit){
+            this.onSubmit(e);
+        }
     }
 
     render() {
         return(
-            <div className="NewPost">
-                <div className="NewPost-Post">
+            <StyledNewPostCont>
+                <StyledNewPost>
                     <CreatePost onSubmit={this.handleSubmit}></CreatePost>
-                </div>
-            </div>
+                </StyledNewPost>
+            </StyledNewPostCont>
         );
     }
 }

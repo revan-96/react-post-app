@@ -1,82 +1,86 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
-import './CreatePost.scss';
 import Alert from '../Alert/Alert';
+import { StyledCreatePost, StyledAlert, StyledBodyBox, StyledTitleBox } from './CreatePostStyles';
 
-class CreatePost extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {title: {value: props.title, Invalid: false}, body: {value: props.body, Invalid: false}};
-        this.onSubmit = props.onSubmit;
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleFocus = this.handleFocus.bind(this);
-    }
-    
-    handleChange(e) {
-        const name = e.target.name;
-        const value = e.target.value;
-        console.log(name, value)
-        if(name === 'title') {
-            this.setState({title: {value: value}});
-        } else if (name ==='body') {
-            this.setState({body: {value: value}});
-        }
-    }
+const initialState = {title: {value: '', Invalid: false}, body: {value: '', Invalid: false}};
 
-    handleSubmit(e) {
-        console.log(e);
+function reducer(state, action) {
+    switch (action.type) {
+        case 'titleChange':
+        return {...state, title: {value: action.value, Invalid: false}};
+        case 'bodyChange':
+        return {...state, body: {value: action.value, Invalid: false}};
+        case 'validSubmit': 
+        return {...state, title: {value: ''}, body: {value: ''}};
+        case 'invalidSubmit':
+            var newState = {};
+                if(!state.title.value) {
+                    newState = {
+                        ...newState,
+                        title: {Invalid: true}                  
+                    }
+                } if(!state.body.value) {
+                    newState = {
+                        ...newState,
+                        body: {Invalid: true}
+                    }
+                }
+        return {...state, ...newState};
+        default:
+        throw new Error();
+    }
+}
+
+function CreatePost(props) {   
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    function handleSubmit(e) {
         e.preventDefault();
-        if (!this.state.title.value) {
-            this.setState({title: {Invalid: true}});
-            return;
-        } if (!this.state.body.value) {
-            this.setState({body: {Invalid: true}});
-            return;
-        } 
-        this.onSubmit({title: this.state.title, body: this.state.body});
+        if(state.title.value && state.body.value) {
+            props.onSubmit({title: state.title.value, body: state.body.value})
+            dispatch({type: 'validSubmit'});     
+        } else {
+            dispatch({type: 'invalidSubmit'});     
+        }       
     }
-
-    handleFocus(e) {
-        const name = e.target.name;
-        if(name === 'title') {
-            this.setState({title: {Invalid: false}});
-        } else if (name === 'body') {
-            this.setState({body: {Invalid: false}});
-        }
-    }    
-
-    render() {        
-        return (
-            <div className="CreatePost">
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Title:
-                        <br/>
-                        <textarea className={'CreatePost-Title' + (this.state.title.Invalid ? ' CreatePost-Title-Red' : '')} name="title" value={this.state.title.value} onChange={this.handleChange} onFocus={this.handleFocus}/>                        
-                        {this.state.title.Invalid && 
-                            <div className="CreatePost-Alert">
-                                <Alert message="Title cannot be empty"></Alert>
-                            </div>
-                        }
-                    </label>
+    return (
+        <StyledCreatePost>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Title:
                     <br/>
-                    <label>
-                        Body:
-                        <br/>
-                        <textarea className={'CreatePost-Body' + (this.state.body.Invalid ? ' CreatePost-Body-Red' : '')} name="body" value={this.state.body.value} onChange={this.handleChange} onFocus={this.handleFocus}/>                        
-                        {this.state.body.Invalid && 
-                            <div className="CreatePost-Alert">
-                                <Alert message="Body cannot be empty"></Alert>
-                            </div>
-                        }
-                    </label>
+                    <StyledTitleBox 
+                        value={state.title.value} 
+                        Invalid={state.title.Invalid} 
+                        onChange={(e) => dispatch({type: 'titleChange', value: e.target.value})}
+                        onFocus={(e) => dispatch({type: 'titleChange', value: e.target.value})}/>                        
+                    {state.title.Invalid && 
+                        <StyledAlert>
+                            <Alert>Title cannot be empty</Alert>
+                        </StyledAlert>
+                    }
+                </label>
+                <br/>
+                <label>
+                    Body:
                     <br/>
-                    <input type="submit" value="Publish"></input>
-                </form>
-            </div>
-        );
-    }
+                    <StyledBodyBox 
+                        value={state.body.value} 
+                        Invalid={state.body.Invalid} 
+                        onChange={(e) => dispatch({type: 'bodyChange', value: e.target.value})}
+                        onFocus={(e) => dispatch({type: 'bodyChange', value: e.target.value})}/>                        
+                    {state.body.Invalid && 
+                        <StyledAlert>
+                            <Alert>Body cannot be empty</Alert>
+                        </StyledAlert>
+                    }
+                </label>
+                <br/>
+                <input type="submit" value="Publish"></input>
+            </form>
+        </StyledCreatePost>
+    );
 }
 
 CreatePost.propTypes = {

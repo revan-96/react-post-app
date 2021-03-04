@@ -1,36 +1,41 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import PushButton from '../PushButton/PushButton';
+import { StyledPushButton, StyledPushButtonGroup } from './PushButtonGroupStyles';
 
-class PushButtonGroup extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = {pressed: "", prev: ""};
-        this.onChange = props.onChange;
+const initialState = {pressed: ""};
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'pressed':
+        return {...state, pressed: action.value};
+        default:
+        throw new Error();
+    }
+}
+
+export function PushButtonGroup (props) {
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    function handleChange(e) {
+        dispatch({type: 'pressed', value: e.target.value});
+        if(props.onChange){
+            props.onChange(e);
+        }
     }
 
-    handleChange(e) {
-        if(this.state.prev === e.target.value)
-            return;
-        this.setState({pressed: e.target.value, prev: e.target.value});
-        this.onChange(e);
-    }
-
-    render() {
-        return (
-            <div>
-            {
-                this.props.children.map((button, index) => {
-                    const props = button.props;
-                    const pressed = this.state.pressed === index.toString();
-                    const Button = button.type;
-                    return <Button key={index} value={index} pressed={pressed} onClick={this.handleChange} {...props}></Button>;
-                })
-            }                
-            </div>
-        );
-    }
+    return (
+        <StyledPushButtonGroup>
+        {
+            props.children.map((button, index) => {
+                const props = button.props;
+                const pressed = state.pressed === index.toString();
+                const Button = button.type;
+                return <StyledPushButton key={index}><Button value={index} pressed={pressed} onClick={handleChange} {...props}></Button></StyledPushButton>;
+            })
+        }                
+        </StyledPushButtonGroup>
+    );
 
 }
 
