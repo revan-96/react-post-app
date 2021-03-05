@@ -10,5 +10,11 @@ const Template = args => <Alert {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    message: ''
+    children: ''
 };
+
+export const WithMessage = Template.bind({});
+WithMessage.args = {
+    children: 'Hello'
+};
+

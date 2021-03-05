@@ -1,22 +1,13 @@
 import React , { useReducer } from 'react';
 import PropTypes from 'prop-types';
-import PushButtonGroup from '../PushButtonGroup/PushButtonGroup';
-import PushButton from '../PushButton/PushButton';
 import Tab from '../Tab/Tab';
+import { StyledPushButtonGroup, StyledPushButton } from './TabBarStyles';
+import { tabReducer } from '../../reducers/reducers';
 
 const initialState = {pressed: ""};
 
-function reducer(state, action) {
-    switch (action.type) {
-        case 'pressed':
-        return {...state, pressed: action.value};
-        default:
-        throw new Error();
-    }
-}
-
 export function TabBar(props) {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(tabReducer, initialState);
 
     function handleChange(e) {
         dispatch({type: 'pressed', value: e.target.value});
@@ -24,15 +15,19 @@ export function TabBar(props) {
 
     return (
         <div>
-        <PushButtonGroup onChange={handleChange}>
+        <StyledPushButtonGroup onChange={handleChange}>
         {
             props.children.map((component, index) => {
-                console.log(component)
                 const props = component.props;
-                return <PushButton key={index}>{props.name}</PushButton>
+                const pressed = state.pressed === index.toString();
+                return (
+                    <React.Fragment key={index}>
+                        <StyledPushButton value={index} pressed={pressed} onClick={handleChange} {...props}>{props.name}</StyledPushButton>
+                    </React.Fragment>
+                );
             })
         }
-        </PushButtonGroup>
+        </StyledPushButtonGroup>
         <br/>
         {
             props.children.map((component, index) => {

@@ -2,38 +2,12 @@ import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Alert from '../Alert/Alert';
 import { StyledCreatePost, StyledAlert, StyledBodyBox, StyledTitleBox } from './CreatePostStyles';
+import { postReducer } from '../../reducers/reducers';
 
 const initialState = {title: {value: '', Invalid: false}, body: {value: '', Invalid: false}};
 
-function reducer(state, action) {
-    switch (action.type) {
-        case 'titleChange':
-        return {...state, title: {value: action.value, Invalid: false}};
-        case 'bodyChange':
-        return {...state, body: {value: action.value, Invalid: false}};
-        case 'validSubmit': 
-        return {...state, title: {value: ''}, body: {value: ''}};
-        case 'invalidSubmit':
-            var newState = {};
-                if(!state.title.value) {
-                    newState = {
-                        ...newState,
-                        title: {Invalid: true}                  
-                    }
-                } if(!state.body.value) {
-                    newState = {
-                        ...newState,
-                        body: {Invalid: true}
-                    }
-                }
-        return {...state, ...newState};
-        default:
-        throw new Error();
-    }
-}
-
 function CreatePost(props) {   
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(postReducer, initialState);
 
     function handleSubmit(e) {
         e.preventDefault();

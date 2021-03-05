@@ -25,6 +25,6 @@ export const OneItem = TabBarTemplate.bind({});
 OneItem.args = { items: [Default.args] };
 
 export const TwoItem = TabBarTemplate.bind({});
-TwoItem.args = { items: [Default.args, Alt.args] };
+TwoItem.args = { items: [Default.args, Default.args] };
 
 

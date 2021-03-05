@@ -1,0 +1,510 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Alert Default 1`] = `
+<p
+  className="sc-bdfBwQ NrOVx"
+>
+  
+</p>
+`;
+
+exports[`Storyshots Alert With Message 1`] = `
+<p
+  className="sc-bdfBwQ NrOVx"
+>
+  Hello
+</p>
+`;
+
+exports[`Storyshots CreatePost Default 1`] = `
+<div
+  className="sc-gsTCUz ciYpLx"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Title:
+      <br />
+      <textarea
+        className="sc-dlfnbm kWpZmE"
+        onChange={[Function]}
+        onFocus={[Function]}
+        value=""
+      />
+    </label>
+    <br />
+    <label>
+      Body:
+      <br />
+      <textarea
+        className="sc-hKgILt cJCzOs"
+        onChange={[Function]}
+        onFocus={[Function]}
+        value=""
+      />
+    </label>
+    <br />
+    <input
+      type="submit"
+      value="Publish"
+    />
+  </form>
+</div>
+`;
+
+exports[`Storyshots CreatePost Empty Fields 1`] = `
+<div
+  className="sc-gsTCUz ciYpLx"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Title:
+      <br />
+      <textarea
+        className="sc-dlfnbm kWpZmE"
+        onChange={[Function]}
+        onFocus={[Function]}
+        value=""
+      />
+    </label>
+    <br />
+    <label>
+      Body:
+      <br />
+      <textarea
+        className="sc-hKgILt cJCzOs"
+        onChange={[Function]}
+        onFocus={[Function]}
+        value=""
+      />
+    </label>
+    <br />
+    <input
+      type="submit"
+      value="Publish"
+    />
+  </form>
+</div>
+`;
+
+exports[`Storyshots MainPage Default 1`] = `
+<div
+  className="sc-fFubgz gmeODQ"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="sc-jSgupP hFkAPJ"
+    >
+      <button
+        className="sc-iBPRYJ kgWXoO"
+        slot="start"
+      >
+        <img
+          className="sc-fubCfw jeNvsw"
+          src="search-512.png"
+        />
+      </button>
+      <input
+        className="sc-gKsewC dVVLjz"
+        onChange={[Function]}
+        onSubmit={[Function]}
+        placeholder="Search Posts"
+        type="text"
+        value=""
+      />
+    </div>
+  </form>
+  <br />
+  <div>
+    <div
+      className="sc-kEjbxe gfaRiN"
+      onChange={[Function]}
+    >
+      <button
+        className="sc-jrAGrp ZFnZg sc-iqHYGH fmQUNz"
+        name="NewPost"
+        onClick={[Function]}
+        value={0}
+      >
+        NewPost
+      </button>
+      <button
+        className="sc-jrAGrp ZFnZg sc-iqHYGH fmQUNz"
+        name="Published"
+        onClick={[Function]}
+        value={1}
+      >
+        Published
+      </button>
+    </div>
+    <br />
+    <div
+      className="sc-pFZIQ jCHHhC"
+      name="NewPost"
+    >
+      <div
+        className="sc-crrsfI faSYUM"
+      >
+        <div
+          className="sc-dQppl kaBDUj"
+        >
+          <div
+            className="sc-gsTCUz ciYpLx"
+          >
+            <form
+              onSubmit={[Function]}
+            >
+              <label>
+                Title:
+                <br />
+                <textarea
+                  className="sc-dlfnbm kWpZmE"
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  value=""
+                />
+              </label>
+              <br />
+              <label>
+                Body:
+                <br />
+                <textarea
+                  className="sc-hKgILt cJCzOs"
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  value=""
+                />
+              </label>
+              <br />
+              <input
+                type="submit"
+                value="Publish"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-pFZIQ jCHHhC"
+      name="Published"
+    >
+      <div
+        className="sc-bqyKva kMRLSx"
+      >
+        <div
+          className="sc-kstrdz cbRfAt"
+        >
+          <div
+            className="sc-hBEYos Brutk"
+          >
+            <div
+              className="sc-fodVxV flshPo"
+            >
+              <h1 />
+              <div>
+                <div
+                  align="center"
+                >
+                  No Posts to Show
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NewPost Default 1`] = `
+<div
+  className="sc-crrsfI faSYUM"
+>
+  <div
+    className="sc-dQppl kaBDUj"
+  >
+    <div
+      className="sc-gsTCUz ciYpLx"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <label>
+          Title:
+          <br />
+          <textarea
+            className="sc-dlfnbm kWpZmE"
+            onChange={[Function]}
+            onFocus={[Function]}
+            value=""
+          />
+        </label>
+        <br />
+        <label>
+          Body:
+          <br />
+          <textarea
+            className="sc-hKgILt cJCzOs"
+            onChange={[Function]}
+            onFocus={[Function]}
+            value=""
+          />
+        </label>
+        <br />
+        <input
+          type="submit"
+          value="Publish"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NewPost New 1`] = `
+<div
+  className="sc-crrsfI faSYUM"
+>
+  <div
+    className="sc-dQppl kaBDUj"
+  >
+    <div
+      className="sc-gsTCUz ciYpLx"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <label>
+          Title:
+          <br />
+          <textarea
+            className="sc-dlfnbm kWpZmE"
+            onChange={[Function]}
+            onFocus={[Function]}
+            value=""
+          />
+        </label>
+        <br />
+        <label>
+          Body:
+          <br />
+          <textarea
+            className="sc-hKgILt cJCzOs"
+            onChange={[Function]}
+            onFocus={[Function]}
+            value=""
+          />
+        </label>
+        <br />
+        <input
+          type="submit"
+          value="Publish"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Post Default 1`] = `
+<div
+  className="sc-fodVxV flshPo"
+>
+  <h1>
+    Test
+  </h1>
+  <div>
+    <p>
+      Test
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots PushButton Default 1`] = `
+<button
+  className="sc-jrAGrp ZFnZg"
+>
+  New Post
+</button>
+`;
+
+exports[`Storyshots SearchBar Default 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="sc-jSgupP hFkAPJ"
+  >
+    <button
+      className="sc-iBPRYJ kgWXoO"
+      slot="start"
+    >
+      <img
+        className="sc-fubCfw jeNvsw"
+        src="search-512.png"
+      />
+    </button>
+    <input
+      className="sc-gKsewC dVVLjz"
+      onChange={[Function]}
+      placeholder="Search Posts"
+      type="text"
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`Storyshots Tab Default 1`] = `
+<div
+  className="sc-pFZIQ jCHHhC"
+  name="Sample Component"
+>
+  <div>
+    Sample Component
+  </div>
+</div>
+`;
+
+exports[`Storyshots TabBar Empty 1`] = `
+<div>
+  <div
+    className="sc-kEjbxe gfaRiN"
+    onChange={[Function]}
+  />
+  <br />
+</div>
+`;
+
+exports[`Storyshots TabBar One Item 1`] = `
+<div>
+  <div
+    className="sc-kEjbxe gfaRiN"
+    onChange={[Function]}
+  >
+    <button
+      className="sc-jrAGrp ZFnZg sc-iqHYGH fmQUNz"
+      name="Sample Component"
+      onClick={[Function]}
+      value={0}
+    >
+      Sample Component
+    </button>
+  </div>
+  <br />
+  <div
+    className="sc-pFZIQ jCHHhC"
+    name="Sample Component"
+  >
+    <div>
+      Sample Component
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots TabBar Two Item 1`] = `
+<div>
+  <div
+    className="sc-kEjbxe gfaRiN"
+    onChange={[Function]}
+  >
+    <button
+      className="sc-jrAGrp ZFnZg sc-iqHYGH fmQUNz"
+      name="Sample Component"
+      onClick={[Function]}
+      value={0}
+    >
+      Sample Component
+    </button>
+    <button
+      className="sc-jrAGrp ZFnZg sc-iqHYGH fmQUNz"
+      name="Sample Component"
+      onClick={[Function]}
+      value={1}
+    >
+      Sample Component
+    </button>
+  </div>
+  <br />
+  <div
+    className="sc-pFZIQ jCHHhC"
+    name="Sample Component"
+  >
+    <div>
+      Sample Component
+    </div>
+  </div>
+  <div
+    className="sc-pFZIQ jCHHhC"
+    name="Sample Component"
+  >
+    <div>
+      Sample Component
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ViewPost Empty 1`] = `
+<div
+  className="sc-bqyKva kMRLSx"
+>
+  <div
+    className="sc-kstrdz cbRfAt"
+  >
+    <div
+      className="sc-hBEYos Brutk"
+    >
+      <div
+        className="sc-fodVxV flshPo"
+      >
+        <h1 />
+        <div>
+          <div
+            align="center"
+          >
+            No Posts to Show
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ViewPost With Post 1`] = `
+<div
+  className="sc-bqyKva kMRLSx"
+>
+  <div
+    className="sc-kstrdz cbRfAt"
+    onClick={[Function]}
+  >
+    <div
+      className="sc-hBEYos dfYpkV"
+    >
+      <div
+        className="sc-fodVxV flshPo"
+      >
+        <h1>
+          Title
+        </h1>
+        <div>
+          <p>
+            Body
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
