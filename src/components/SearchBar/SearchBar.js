@@ -3,26 +3,12 @@ import PropTypes, { element, func } from 'prop-types';
 import searchicon from '../.././assets/search-512.png'
 import clearIcon from '../.././assets/img_132045.png'
 import { StyledSearchBar, StyledInput, StyledButton, StyledImage} from './SearchBarStyles';
+import { searchReducer } from '../../reducers/reducers';
 
 const initialState = {showClear: false, value: ""};
 
-function reducer(state, action) {
-    switch (action.type) {
-        case 'clearInput':
-        return {showClear: false, value: ""};
-        case 'inputChange':
-            if(action.value) {
-                return {showClear: true, value: action.value}                
-            } else {
-                return {showClear: false, value: action.value};
-            }
-        default:
-        throw new Error();
-    }
-}
-
 export function SearchBar(props) {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(searchReducer, initialState);
 
     function handleSubmit(e) {
         e.preventDefault();

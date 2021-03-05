@@ -1,17 +1,9 @@
 import React, { useReducer, useEffect } from 'react';
 import { StyledPostView, StyledPostCont, StyledPost } from './ViewPostStyles.js';
 import Post from '../Post/Post';
+import { viewReducer } from '../../reducers/reducers.js';
 
 const initialState = {expand: ""};
-
-function reducer(state, action) {
-    switch (action.type) {
-        case 'expandPost': 
-        return {...state, expand: action.value};
-        default:
-        throw new Error();     
-    }
-}
 
 function AddScroll (WrappedComponent) {
 
@@ -45,7 +37,7 @@ function AddScroll (WrappedComponent) {
  }
 
 export function ViewPost (props) {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(viewReducer, initialState);
     return (
         <StyledPostView>
         {

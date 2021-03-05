@@ -21,7 +21,7 @@ export function postReducer(state, action) {
                 }
         return {...state, ...newState};
         default:
-        throw new Error();
+        return state;
     }
 }
 
@@ -30,7 +30,44 @@ export function tabReducer(state, action) {
         case 'pressed':
         return {...state, pressed: action.value};
         default:
-        throw new Error();
+        return state;
+    }
+}
+
+export function mainPageReducer(state, action) {
+    switch (action.type) {
+        case 'postAdded':
+            const posts = state.posts;
+            posts.push(action.post);
+        return {...state, posts: posts};
+        case 'search':
+        return {...state, searchkey: action.value};
+        default:
+        return state;
+    }
+}
+
+export function searchReducer(state, action) {
+    switch (action.type) {
+        case 'clearInput':
+        return {showClear: false, value: ""};
+        case 'inputChange':
+            if(action.value) {
+                return {showClear: true, value: action.value}                
+            } else {
+                return {showClear: false, value: action.value};
+            }
+        default:
+        return state;  
+    }
+}
+
+export function viewReducer(state, action) {
+    switch (action.type) {
+        case 'expandPost': 
+        return {...state, expand: action.value};
+        default:
+        return state;     
     }
 }
 

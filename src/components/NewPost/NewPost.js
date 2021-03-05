@@ -6,23 +6,14 @@ import { StyledNewPostCont, StyledNewPost } from './NewPostStyles';
 class NewPost extends React.Component {
     constructor(props) {
         super(props)
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.onSubmit = props.onSubmit;
-    }
-
-    handleSubmit(e) {
-        //submit post to common store
-        console.log(e);
-        if(this.onSubmit){
-            this.onSubmit(e);
-        }
     }
 
     render() {
         return(
             <StyledNewPostCont>
                 <StyledNewPost>
-                    <CreatePost onSubmit={this.handleSubmit}></CreatePost>
+                    <CreatePost onSubmit={this.onSubmit}></CreatePost>
                 </StyledNewPost>
             </StyledNewPostCont>
         );

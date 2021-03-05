@@ -14,3 +14,10 @@ Default.args = {
     children: <div>Sample Component</div>
 };
 
+export const Active = Template.bind({});
+Active.args = {
+    name: 'Sample Component',
+    children: <div>Sample Component</div>,
+    active: true
+};
+

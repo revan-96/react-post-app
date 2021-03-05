@@ -5,24 +5,12 @@ import Tab from '../Tab/Tab';
 import NewPost from '../NewPost/NewPost';
 import ViewPost from '../ViewPost/ViewPost';
 import { StyledMain } from './MainPageStyles';
+import { mainPageReducer } from '../../reducers/reducers';
 
 const initialState = {posts: [], searchkey: ''};
 
-function reducer(state, action) {
-    switch (action.type) {
-        case 'postAdded':
-            const posts = state.posts;
-            posts.push(action.post);
-        return {...state, posts: posts};
-        case 'search':
-        return {...state, searchkey: action.value};
-        default:
-        throw new Error();
-    }
-}
-
 function MainPage(params) {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(mainPageReducer, initialState);
 
     function getPosts() {
         const posts = state.posts.filter(post => {
@@ -31,17 +19,12 @@ function MainPage(params) {
         return posts
     }
 
-    function addPost(e) {
-        console.log(e);
-        dispatch({type: 'postAdded', post: e})
-    }
-
     return (
         <StyledMain>
             <SearchBar onSubmit={(e)=>dispatch({type: 'search', value: e})}></SearchBar> 
             <br/>
             <TabBar>
-                <Tab name="NewPost"><NewPost onSubmit={addPost}></NewPost></Tab>
+                <Tab name="NewPost"><NewPost onSubmit={(e)=>dispatch({type: 'postAdded', post: e})}></NewPost></Tab>
                 <Tab name="Published"><ViewPost posts={getPosts()}></ViewPost></Tab>
             </TabBar>
         </StyledMain>

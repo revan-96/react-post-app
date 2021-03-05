@@ -13,3 +13,9 @@ Default.args = {
     children: 'New Post'
 };
 
+export const Pressed = Template.bind({});
+Pressed.args = {
+    ...Default,
+    pressed: true
+};
+

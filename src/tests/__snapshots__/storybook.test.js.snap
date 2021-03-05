@@ -336,6 +336,12 @@ exports[`Storyshots PushButton Default 1`] = `
 </button>
 `;
 
+exports[`Storyshots PushButton Pressed 1`] = `
+<button
+  className="sc-jrAGrp hfykve"
+/>
+`;
+
 exports[`Storyshots SearchBar Default 1`] = `
 <form
   onSubmit={[Function]}
@@ -361,6 +367,17 @@ exports[`Storyshots SearchBar Default 1`] = `
     />
   </div>
 </form>
+`;
+
+exports[`Storyshots Tab Active 1`] = `
+<div
+  className="sc-pFZIQ dhVlaR"
+  name="Sample Component"
+>
+  <div>
+    Sample Component
+  </div>
+</div>
 `;
 
 exports[`Storyshots Tab Default 1`] = `
